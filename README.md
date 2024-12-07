@@ -11,12 +11,12 @@
 
 ### JDK 17
 
-Проект использует синтаксис Java 17. Для локального запуска вам потребуется
+Проект использует синтаксис Java 17. Для локального запуска потребуется
 установленный JDK 17.
 
 ### Docker
-Для запуска проекта вам потребуется установленный и запущенный Docker.
-Для запуска БД(PostgreSQL) требуется запустить соответствующий сервис в Docker.
+Для запуска проекта потребуется установленный и запущенный Docker.
+Для запуска БД (PostgreSQL) требуется запустить соответствующий сервис в Docker.
 
 ### Подключение к интернету
 
@@ -26,8 +26,13 @@
 
 ### Запуск контейнера с базой данных
 
+Запуск контейнера при помощи [docker-compose.yml](docker/docker-compose.yml)
 ```bash
-docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres -d postgres
+docker-compose up -d
+```
+или
+```bash
+docker run -p 5433:5432 --name currency_DB -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
 Пользователь для подключения к контейнеру `postgres`.
@@ -64,6 +69,13 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url http://localhost:8080/api/currency
+```
+
+Обновление валют через API банка, которые задаются в [файле конфигурации](src/main/resources/application.yml)
+
+```bash
+curl --request GET \
+  --url http://localhost:8080/api/currency/actual
 ```
 
 Конвертация валюты по числовому коду
