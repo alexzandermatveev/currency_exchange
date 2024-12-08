@@ -64,8 +64,7 @@ public class CurrencyService {
         return currencyList;
     }
 
-
-    //@Scheduled(cron = "0 0 * * * *") // секунды минуты часы день_месяца месяц день_недели [год]
+//    @Scheduled(cron = "0 0 * * * *") // секунды минуты часы день_месяца месяц день_недели [год]
     @Scheduled(fixedRate = 1, timeUnit = TimeUnit.HOURS)
     @Transactional
     public CurrencyList getAvailableCurrencyFromBank() throws JAXBException, IOException, InterruptedException {

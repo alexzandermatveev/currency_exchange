@@ -32,7 +32,7 @@ docker-compose up -d
 ```
 или
 ```bash
-docker run -p 5433:5432 --name currency_DB -e POSTGRES_PASSWORD=postgres -d postgres
+docker run -p 5433:5432 --name currency_DB -e POSTGRES_PASSWORD=postgres -d currency_DB
 ```
 
 Пользователь для подключения к контейнеру `postgres`.
