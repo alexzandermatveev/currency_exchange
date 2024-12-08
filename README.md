@@ -47,7 +47,7 @@ docker run -p 5433:5432 --name currency_DB -e POSTGRES_PASSWORD=postgres -d curr
 
 ```bash
 curl --request POST \
-  --url http://localhost:8080/api/currency/create \
+  --url http://localhost:8081/api/currency/create \
   --header 'Content-Type: application/json' \
   --data '{
   "name": "Доллар Готэм-Сити",
@@ -61,26 +61,26 @@ curl --request POST \
 
 ```bash
 curl --request GET \
-  --url http://localhost:8080/api/currency/1333
+  --url http://localhost:8081/api/currency/1333
 ```
 
 Получение всех Валют
 
 ```bash
 curl --request GET \
-  --url http://localhost:8080/api/currency
+  --url http://localhost:8081/api/currency
 ```
 
 Обновление валют через API банка, которые задаются в [файле конфигурации](src/main/resources/application.yml)
 
 ```bash
 curl --request GET \
-  --url http://localhost:8080/api/currency/actual
+  --url http://localhost:8081/api/currency/actual
 ```
 
 Конвертация валюты по числовому коду
 
 ```bash
 curl --request GET \
---url http://localhost:8080/api/currency/convert?value=100&numCode=840
+--url http://localhost:8081/api/currency/convert?value=100&numCode=840
 ```
